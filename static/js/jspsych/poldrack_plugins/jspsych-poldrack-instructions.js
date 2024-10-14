@@ -22,13 +22,12 @@ jsPsych.plugins['poldrack-instructions'] = (function() {
     trial.allow_keys = (typeof trial.allow_keys === 'undefined') ? true : trial.allow_keys;
     trial.show_clickable_nav = (typeof trial.show_clickable_nav === 'undefined') ? false :
       trial.show_clickable_nav;
-    
     // if any trial variables are functions
     // this evaluates the function and replaces
     // it with the output of the function
     trial = jsPsych.pluginAPI.evaluateFunctionParameters(trial);
 
-    var current_page = 0;
+    let current_page = 0;
 
     var view_history = [];
 
@@ -37,8 +36,10 @@ jsPsych.plugins['poldrack-instructions'] = (function() {
     var last_page_update_time = start_time;
 
     function show_current_page() {
+      
+      console.log(trial.pages.length - 1)
+      console.log(current_page)
       if (trial.show_clickable_nav) {
-
         var nav_html = "<div class='jspsych-instructions-nav'>";
         if (trial.pages.length == 1) {
           if (trial.end == 1 ){
@@ -48,24 +49,23 @@ jsPsych.plugins['poldrack-instructions'] = (function() {
           }
         } else {
           if (current_page == 0) {
-            console.log(trial.end)
           
-            nav_html += "<button id='jspsych-instructions-next'>다음</button>"
+            nav_html += "<button id='jspsych-instructions-next'>다음 ></button>"
           } else if (current_page == trial.pages.length - 1) {
             if (trial.allow_backward) {
-              nav_html += "<button id='jspsych-instructions-back'>이전</button>";
+              nav_html += "<button id='jspsych-instructions-back'>< 이전</button>";
             }
             if (trial.button_label_finish === "undefined"){
               nav_html += "<button id='jspsych-instructions-next'>종료</button>"
             }
             else{
-              nav_html += "<button id='jspsych-instructions-next'>다음</button>"
+              nav_html += "<button id='jspsych-instructions-next'>연습 시작하기</button>"
             }
           } else {
             if (trial.allow_backward) {
-              nav_html += "<button id='jspsych-instructions-back'>이전</button>";
+              nav_html += "<button id='jspsych-instructions-back'>< 이전</button>";
             }
-            nav_html += "<button id='jspsych-instructions-next'>다음</button>"
+            nav_html += "<button id='jspsych-instructions-next'>다음> </button>"
           }
         }
         nav_html += "</div>"

@@ -150,7 +150,7 @@ for (var j = 0; j < trial.options[0][0].length; j++) {
       'type': 'submit',
       'id': plugin_id_name + '-next',
       'class': plugin_id_name + ' jspsych-btn',
-      'value': '답안 제출'
+      'value': '다음 >'
     }));
 
 

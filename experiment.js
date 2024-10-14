@@ -304,9 +304,12 @@ var instructions_block = {
     '</div>',
 
     // 세 번째 페이지: 연습 문제 안내
-    '<div class="centerbox">' + 
-    '<p class="center-block-text" style="font-size: 24px; font-weight: 400; line-height: 2.3rem;">이제 다음 페이지에서는 연습 문제 2개를 풀어보겠습니다. 연습 문제에는 정답/오답 여부가 제시되며, 다시 풀 수 있습니다. 실제 문제에는 정답/오답 여부가 제시되지 않습니다.</p>' + 
-    '</div>'
+    '<div class="centerbox">'+
+  '<p class="center-block-text" style="font-size: 24px; font-weight: 400; line-height: 2.3rem;">'
+    +'이제 다음 페이지에서는 <strong style="font-size: 26px; color: #007BFF;">연습 문제 2개</strong>를 풀어보겠습니다. <br><br>'
+    +'연습 문제에는 <strong style="color: #28A745;">정답/오답 여부</strong>가 제시되며, <strong style="color: #28A745;">다시 풀 수</strong> 있습니다.<br><br>'
+    +'<span style="font-weight: 600; font-size: 22px;">실제 문제</span>에는 정답/오답 여부가 <span style="text-decoration: underline;">제시되지 않습니다.</span></p></div>'
+
   ],
   allow_keys: false,
   show_clickable_nav: true,
