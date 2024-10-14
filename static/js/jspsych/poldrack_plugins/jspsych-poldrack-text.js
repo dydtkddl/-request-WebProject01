@@ -42,11 +42,11 @@ jsPsych.plugins["poldrack-text"] = (function() {
       }
 
       var trialdata = {
-        "text": trial.text,
+        // "text": trial.text,
+        "score_response" : "",
         "rt": info.rt,
+        "response_range" : "",
         "key_press": info.key,
-        "block_duration": block_duration,
-        "timing_post_trial": trial.timing_post_trial
       }
        // Save the trial data
        jsPsych.data.write(trialdata);
@@ -100,15 +100,23 @@ jsPsych.plugins["poldrack-text"] = (function() {
     }
 
   };
-  // Function to convert data to CSV format
-  function convertToCSV(data) {
-    const headers = Object.keys(data[0]);  // Get headers from the first object
-    const rows = data.map(row => headers.map(header => row[header]));  // Map each row
+// Function to convert data to CSV format, removing rows without score_response
+function convertToCSV(data) {
+  // Filter out rows where score_response is null, undefined, or empty
+  const filteredData = data.filter(row => row['score_response'] !== null && row['score_response'] !== undefined && row['score_response'] !== '');
 
-    // Combine headers and rows
-    const csvContent = [headers.join(','), ...rows.map(r => r.join(','))].join('\n');
-    return csvContent;
-  }
+  // Get headers from the first object of the filtered data
+  const headers = Object.keys(filteredData[0]);
+
+  // Map each row, extracting values based on the headers
+  const rows = filteredData.map(row => headers.map(header => row[header]));
+
+  // Combine headers and rows into CSV format
+  const csvContent = [headers.join(','), ...rows.map(r => r.join(','))].join('\n');
+
+  return csvContent;
+}
+
 
   // Function to trigger CSV download
   function downloadCSV(csv, filename) {

@@ -202,7 +202,6 @@ for (var j = 0; j < trial.options[0][0].length; j++) {
         
         "exp_id": trial.exp_id  // Experiment ID
       });
-
       // 설문이 완료되면 폼과 그 안에 있던 질문 및 옵션을 포함한 HTML 내용을 지웁니다. 이 작업을 통해 다음 트라이얼이 표시될 준비를 합니다.
       display_element.html('');
       // next trial
