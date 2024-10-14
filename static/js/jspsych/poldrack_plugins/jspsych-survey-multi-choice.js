@@ -33,7 +33,6 @@ jsPsych.plugins['poldrack-survey-multi-choice'] = (function() {
     trial.horizontal = typeof trial.horizontal == 'undefined' ? false : trial.horizontal;
     trial.exp_id = typeof trial.exp_id == 'undefined' ? "exp_id" : trial.exp_id;
     trial.pages
-    console.log(trial.pages)
     trial.options
     trial.scale = typeof trial.scale == 'undefined' ? [] : trial.scale; // Ensure scale is initialized as array
     // if any trial variables are functions
@@ -151,7 +150,7 @@ for (var j = 0; j < trial.options[0][0].length; j++) {
       'type': 'submit',
       'id': plugin_id_name + '-next',
       'class': plugin_id_name + ' jspsych-btn',
-      'value': 'Submit Answers'
+      'value': '답안 제출'
     }));
 
 
@@ -206,9 +205,6 @@ for (var j = 0; j < trial.options[0][0].length; j++) {
 
       // 설문이 완료되면 폼과 그 안에 있던 질문 및 옵션을 포함한 HTML 내용을 지웁니다. 이 작업을 통해 다음 트라이얼이 표시될 준비를 합니다.
       display_element.html('');
-      console.log(trial_data)
-      console.log(trial_data.stim_response)
-      console.log(trial_data.score_response)
       // next trial
       // jsPsych.finishTrial: 현재 트라이얼을 종료하고, trial_data 객체를 jsPsych에 전달합니다. 
       // 이 함수가 호출되면 다음 트라이얼이 시작되거나, 실험이 끝났다면 결과를 보여줍니다.

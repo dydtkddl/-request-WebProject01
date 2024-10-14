@@ -56,7 +56,6 @@ for (var i = 0; i < top_img.length; i++) {
     postfix)
     all_pages.push(page)
   }
-  console.log(all_pages)
 
 var opts = ["A", "B", "C", "D", "E", "F", "G", "H"]
 
@@ -505,8 +504,8 @@ var start_test_block = {
 };
 
 var survey_block = [];
-// for (let i = 0; i < all_pages.length; i++) {
-for (let i = 0; i < 2; i++) {
+for (let i = 0; i < all_pages.length; i++) {
+// for (let i = 0; i < 2; i++) {
   // i는 0부터 all_pages.length - 1까지 반복됩니다.
   survey_block.push({
     type: "poldrack-survey-multi-choice",
@@ -660,5 +659,5 @@ ravens_experiment.push(selected_result_block);
 jsPsych.init({
   display_element: $('#jspsych-target'),
   timeline: ravens_experiment,
-  on_finish: function(){jsPsych.data.displayData(); }
+  on_finish: function(){ }
 });
