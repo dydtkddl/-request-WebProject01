@@ -1,41 +1,65 @@
 /* ************************************ */
 /* Define helper functions */
 /* ************************************ */
+// 두 개의 <div> 요소가 순차적으로 <body> 안에 추가되며 display_stage가 클래스인 div를 반환
 function getDisplayElement() {
+  // jQuery를 사용해 새로운 <div> 요소를 생성
+  // 그리고 HTML 문서의 <body> 태그 안에 추가.
   $('<div class = display_stage_background></div>').appendTo('body')
+  // $('<div class = display_stage></div>'): 클래스 이름이 display_stage인 또 다른 빈 <div> 요소를 생성
+  // 그리고 body태그안에 추가
+  //그리고 그 div를 반환
   return $('<div class = display_stage></div>').appendTo('body')
 }
 
+// 주어진 값(value)으로 길이(len)의 배열을 생성하는 함수
 function fillArray(value, len) {
+  // 길이가 0일 경우, 빈 배열을 반환
   if (len === 0) return [];
+
+  // 배열 a를 value로 초기화된 배열로 설정
   var a = [value];
+
+  // 배열 a의 길이가 len의 절반 이하일 동안 배열 a를 자신과 합쳐서 배열의 크기를 두 배로 증가시킴
   while (a.length * 2 <= len) a = a.concat(a);
+
+  // 배열 a의 길이가 목표 길이(len)에 도달하지 않았을 경우, 남은 부분만큼 다시 추가함
+  // 남은 길이(len - a.length)만큼 배열 a의 앞부분을 잘라서 추가
   if (a.length < len) a = a.concat(a.slice(0, len - a.length));
+
+  // 완성된 배열을 반환
   return a;
 }
 
+// 함수 getInstructFeedback: feedback_instruct_text 변수를 포함하는 HTML 문자열을 반환
 var getInstructFeedback = function() {
+  // 'centerbox' 클래스를 가진 <div> 요소와 'center-block-text' 클래스를 가진 <p> 요소를 생성하고,
+  // 그 안에 feedback_instruct_text 변수를 포함시켜 반환
   return '<div class = centerbox><p class = center-block-text>' + feedback_instruct_text +
-    '</p></div>'
+    '</p></div>';
 }
 
+// 함수 getPracticeInstruct: practice_feedback_text 변수를 포함하는 HTML 문자열을 반환
 var getPracticeInstruct = function() {
+  // 'centerbox' 클래스를 가진 <div> 요소와 'center-block-text' 클래스를 가진 <p> 요소를 생성하고,
+  // 그 안에 practice_feedback_text 변수를 포함시켜 반환
   return '<div class = centerbox><p class = center-block-text>' + practice_feedback_text +
-    '</p></div>'
+    '</p></div>';
 }
+
 
 /* ************************************ */
 /* Define experimental variables */
 /* ************************************ */
-var run_attention_checks = true
-var attention_check_thresh = 0.65
-var sumInstructTime = 0 //ms
-var instructTimeThresh = 0 ///in seconds
+var run_attention_checks = true  // 주의력 확인을 실행할지 여부를 설정하는 변수 (true로 설정 시 실행됨)
+var attention_check_thresh = 0.65  // 주의력 확인 통과를 위한 임계값(65% 이상 통과해야 함)
+var sumInstructTime = 0  // 설명을 읽는 데 걸린 시간의 총합 (밀리초 단위)  //ms
+var instructTimeThresh = 0  // 설명을 읽는 데 필요한 ///in seconds
 
-var path = './images/'
-var prefix = '<div><img src = "'
-var bottom_id = '" id="bottom_img'
-var postfix = '"</img></div>'
+var path = './images/' // 이미지 파일들이 저장된 경로를 나타내는 변수
+var prefix = '<div><img src = "' // 각 이미지 태그의 시작 부분을 담은 HTML 문자열 (이미지 태그의 시작을 정의)
+var bottom_id = '" id="bottom_img'  // 이미지의 id 속성을 정의하는 문자열 (bottom_img라는 id를 지정)
+var postfix = '"</img></div>' // 이미지 태그의 끝 부분을 담은 HTML 문자열 (이미지 태그와 div의 끝을 정의)
 var top_img = ['top_1.jpg', 'top_2.jpg', 'top_3.jpg', 'top_4.jpg', 'top_5.jpg', 'top_6.jpg',
   'top_7.jpg', 'top_8.jpg', 'top_9.jpg', 'top_10.jpg', 'top_11.jpg', 'top_12.jpg', 'top_13.jpg',
   'top_14.jpg', 'top_15.jpg', 'top_16.jpg', 'top_17.jpg', 'top_18.jpg'
@@ -44,21 +68,24 @@ var bottom_img = ['bottom_1.jpg', 'bottom_2.jpg', 'bottom_3.jpg', 'bottom_4.jpg'
   'bottom_6.jpg', 'bottom_7.jpg', 'bottom_8.jpg', 'bottom_9.jpg', 'bottom_10.jpg',
   'bottom_11.jpg', 'bottom_12.jpg', 'bottom_13.jpg', 'bottom_14.jpg', 'bottom_15.jpg',
   'bottom_16.jpg', 'bottom_17.jpg', 'bottom_18.jpg'
-]
-var practice_tries = 0
-var practice_thresh = 5
+] // top 이미지 파일들의 이름을 저장한 배열 (총 18개의 이미지 파일 이름을 담고 있음)
+// bottom 이미지 파일들의 이름을 저장한 배열 (총 18개의 이미지 파일 이름을 담고 있음)
+var practice_tries = 0// 연습 문제의 시도 횟수를 저장하는 변수 (처음에는 0으로 설정)
+var practice_thresh = 5  // 연습 문제의 최대 허용 시도 횟수 (5번까지 시도 가능)
+var all_pages = []   // 각 문제의 이미지 페이지들을 저장할 빈 배열
 
-var all_pages = []
-
+// top_img 라는 어레이의 길이만큼 반복
 for (var i = 0; i < top_img.length; i++) {
-  var page = []
+  var page = [] // 완전체 이미지 HTML코드조각을 넣을
   page.push(prefix + path + top_img[i] + postfix + prefix + path + bottom_img[i] + bottom_id +
     postfix)
   all_pages.push(page)
+  console.log(all_pages)
 }
 
 var opts = ["A", "B", "C", "D", "E", "F", "G", "H"]
 
+// ["A", "B", "C", "D", "E", "F", "G", "H"]라는 내부 어레이가 18개 있는 이중어레이 생성
 var all_options = fillArray([opts], 18)
 
 var scale_q1 = {
