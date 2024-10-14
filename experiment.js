@@ -1,3 +1,10 @@
+// jsPsych는 심리학 실험이나 행동 연구를 웹 브라우저에서 쉽게 수행할 수 있도록 설계된 오픈소스 자바스크립트 라이브러리
+// 실험이 끝난 후, 수집된 데이터를 JSON 또는 CSV 형식으로 저장할 수 있어, 데이터를 쉽게 분석할 수 있습니다. 웹 서버와 연동하여 자동으로 데이터를 저장할 수도 있습니다.
+
+// Raven's Matrices 란? 
+// 레이븐 지능검사는 일반적으로 교육 환경에서 사용되는 비언어적 그룹 테스트로 잘알려져있다. 
+// 일반적으로 추상적 추론을 측정하는 데 사용되며 지능의 비언어적 추정으로 간주되는 60개 항목으로 이루어진 테스트이다
+
 /* ************************************ */
 /* Define helper functions */
 /* ************************************ */
@@ -77,11 +84,11 @@ let all_pages = []   // 각 문제의 이미지 페이지들을 저장할 빈 �
 // top_img 라는 어레이의 길이만큼 반복
 for (var i = 0; i < top_img.length; i++) {
   var page = [] // 완전체 이미지 HTML코드조각을 넣을
-  page.push(prefix + path + top_img[i] + postfix + prefix + path + bottom_img[i] + bottom_id +
-    postfix)
+  page.push(prefix + path + top_img[i] + postfix + prefix + path + bottom_img[i] + bottom_id + postfix)
   all_pages.push(page)
 }
 
+// 옵션 정의
 var opts = ["A", "B", "C", "D", "E", "F", "G", "H"]
 
 // ["A", "B", "C", "D", "E", "F", "G", "H"]라는 내부 어레이가 18개 있는 이중어레이 생성
@@ -267,7 +274,16 @@ var scale_q18 = {
   "G": 0,
   "H": 0
 }
-
+// [ {
+//   "A": 0,
+//   "B": 0,
+//   "C": 0,
+//   "D": 1,
+//   "E": 0,
+//   "F": 0,
+//   "G": 0,
+//   "H": 0
+// }, {}, {}, ....]
 var score_scale = [
   [scale_q1],
   [scale_q2],
