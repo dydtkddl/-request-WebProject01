@@ -21,10 +21,13 @@ jsPsych.plugins['poldrack-instructions'] = (function() {
     trial.allow_backward = (typeof trial.allow_backward === 'undefined') ? true : trial.allow_backward;
     trial.allow_keys = (typeof trial.allow_keys === 'undefined') ? true : trial.allow_keys;
     trial.show_clickable_nav = (typeof trial.show_clickable_nav === 'undefined') ? false :
+      trial.show_clickable_nav;
+    
     // if any trial variables are functions
     // this evaluates the function and replaces
     // it with the output of the function
     trial = jsPsych.pluginAPI.evaluateFunctionParameters(trial);
+
     var current_page = 0;
 
     var view_history = [];
@@ -35,7 +38,7 @@ jsPsych.plugins['poldrack-instructions'] = (function() {
 
     function show_current_page() {
       if (trial.show_clickable_nav) {
-        
+
         var nav_html = "<div class='jspsych-instructions-nav'>";
         if (trial.pages.length == 1) {
           nav_html += "<button id='jspsych-instructions-next'>종료</button>"
@@ -141,9 +144,8 @@ jsPsych.plugins['poldrack-instructions'] = (function() {
         "view_history": JSON.stringify(view_history),
         "rt": (new Date()).getTime() - start_time
       };
-      if (trial.show_result == 1) {
+
       jsPsych.finishTrial(trial_data);
-      }
     }
 
     var after_response = function(info) {

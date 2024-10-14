@@ -505,8 +505,8 @@ var start_test_block = {
 };
 
 var survey_block = [];
-for (let i = 0; i < all_pages.length; i++) {
-// for (let i = 0; i < 2; i++) {
+// for (let i = 0; i < all_pages.length; i++) {
+for (let i = 0; i < 2; i++) {
   // i는 0부터 all_pages.length - 1까지 반복됩니다.
   survey_block.push({
     type: "poldrack-survey-multi-choice",
