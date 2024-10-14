@@ -41,9 +41,15 @@ jsPsych.plugins['poldrack-instructions'] = (function() {
 
         var nav_html = "<div class='jspsych-instructions-nav'>";
         if (trial.pages.length == 1) {
+          if (trial.end == 1 ){
+            nav_html += "<button id='jspsych-instructions-next-fake'>종료</button>"
+          }else{
           nav_html += "<button id='jspsych-instructions-next'>종료</button>"
+          }
         } else {
           if (current_page == 0) {
+            console.log(trial.end)
+          
             nav_html += "<button id='jspsych-instructions-next'>다음</button>"
           } else if (current_page == trial.pages.length - 1) {
             if (trial.allow_backward) {

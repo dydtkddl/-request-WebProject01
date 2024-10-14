@@ -314,7 +314,9 @@ var instructions_block = {
   data: {
     exp_id: "ravens"
   },
-  button_label_finish: '다음' // '종료' 버튼의 레이블을 '다음'으로 변경
+  button_label_finish: '다음', // '종료' 버튼의 레이블을 '다음'으로 변경
+  end : 0
+
 };
 
 var instruction_node = {
@@ -566,6 +568,7 @@ var result_block_1 = {
   data: {
     exp_id: "ravens"  // 실험 ID
   },
+  end : 1
 };
 
 
@@ -593,6 +596,7 @@ var result_block_2 = {
   data: {
     exp_id: "ravens"  // 실험 ID
   },
+  end : 1
 };
 
 
@@ -617,6 +621,7 @@ var result_block_3 = {
   data: {
     exp_id: "ravens"  // 실험 ID
   },
+  end : 1
 };
 
 
