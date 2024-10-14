@@ -72,7 +72,7 @@ var bottom_img = ['bottom_1.jpg', 'bottom_2.jpg', 'bottom_3.jpg', 'bottom_4.jpg'
 // bottom 이미지 파일들의 이름을 저장한 배열 (총 18개의 이미지 파일 이름을 담고 있음)
 var practice_tries = 0// 연습 문제의 시도 횟수를 저장하는 변수 (처음에는 0으로 설정)
 var practice_thresh = 5  // 연습 문제의 최대 허용 시도 횟수 (5번까지 시도 가능)
-var all_pages = []   // 각 문제의 이미지 페이지들을 저장할 빈 배열
+let all_pages = []   // 각 문제의 이미지 페이지들을 저장할 빈 배열
 
 // top_img 라는 어레이의 길이만큼 반복
 for (var i = 0; i < top_img.length; i++) {
@@ -80,7 +80,6 @@ for (var i = 0; i < top_img.length; i++) {
   page.push(prefix + path + top_img[i] + postfix + prefix + path + bottom_img[i] + bottom_id +
     postfix)
   all_pages.push(page)
-  console.log(all_pages)
 }
 
 var opts = ["A", "B", "C", "D", "E", "F", "G", "H"]
