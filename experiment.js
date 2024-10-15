@@ -293,7 +293,7 @@ var instructions_block = {
   pages: [
     // 첫 번째 페이지: 테스트 소개
     '<div class="centerbox">' + 
-    '<p class="block-text" style="font-size: 24px; font-weight: 400; line-height: 2.3rem;">이 테스트는 <strong>관찰력</strong>, <strong>집중력</strong>, <strong>사고력</strong>을 평가하는 시험이며, 18개 문제로 이루어져 있습니다.</p>' + 
+    `<p class="block-text" style="font-size: 24px; font-weight: 400; line-height: 2.3rem;">이 테스트는 <strong>관찰력</strong>, <strong>집중력</strong>, <strong>사고력</strong>을 평가하는 시험이며, ${bottom_img.length}개 문제로 이루어져 있습니다.</p>` + 
     '<p class="block-text" style="font-size: 24px; font-weight: 400; line-height: 2.3rem;">각 문제에는 일정한 패턴을 가진 그림이 제시되어 있습니다. 여러분의 역할은 패턴을 파악하여 빈칸을 완성하는 것입니다. 8가지 선택지 중에서 빈칸에 들어갈 그림으로 적절한 것을 고르세요.</p>' + 
     '<p class="block-text" style="font-size: 24px; font-weight: 400; line-height: 2.3rem; color: #007bff;">‘다음’ 버튼을 누르면 예시 문제가 제시됩니다.</p>' + 
     '</div>',
