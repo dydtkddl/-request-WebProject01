@@ -273,9 +273,9 @@ var score_scale = [
 /* define static blocks */
 
 var feedback_instruct_text =
-  '<div style="text-align: center; font-size: 24px; font-weight: 400; line-height: 2.5rem; color: #333; padding: 20px;">' + 
+  '<br><div style="text-align: center; font-size: 26px; font-weight: 600; line-height: 2.5rem; color: #333; padding: 20px;">' + 
   '연구에 참여해 주셔서 감사합니다.<br><br>' + 
-  '계속하려면 <strong style="color: #007BFF; font-size: 26px;">enter</strong> 키를 누르세요.' +
+  '<span style ="font-size : 32px; font-weight : 400" >계속하려면 <strong style="color: #007BFF; font-size: 29px;">enter</strong> 키를 누르세요.</span>' +
   '</div>';
 
 var feedback_instruct_block = {
@@ -557,8 +557,8 @@ var randomNumber = Math.floor(Math.random() * 3) + 7; // 7, 8, 9 중 하나 선�
 var result_block_1 = {
   type: 'poldrack-instructions', 
   pages: [
-    '<div class="centerbox" style="line-height: 1.8; width : 680px">' +  
-    '<p class="block-text" style="line-height : 2.9rem; font-weight : 800; font-size : 28px; font-family: Pretendard, sans-serif;">' + 
+    '<div class="centerbox" style="line-height: 1.8; width : 750px; ">' +  
+    '<p class="block-text" style="line-height : 2.9rem; font-weight : 800; font-size : 28px; font-family: Pretendard, sans-serif; ">' + 
     '총 10개 문제 중 <strong style="color: red; font-size: 26px; text-decoration: underline; font-family: Pretendard, sans-serif;">' + randomNumber + '</strong>개 맞추셨습니다.<br>' +  
     '<span style="color: #3257af; font-family: Pretendard, sans-serif;">본 과제에서 6개 이상 맞춘 경우 매우 훌륭한 결과이며, <br> 이는 대학에서 공부하는 데 충분한 인지 능력을 가졌음을 의미합니다.</span></p></div>',
   ],
@@ -584,7 +584,7 @@ var randomPercentage = (Math.random() * (11.9 - 6.0) + 6.0).toFixed(1); // 6.0 ~
 var result_block_2 = {
   type: 'poldrack-instructions', 
   pages: [
-    '<div class="centerbox" style="line-height: 1.8; width : 680px;">' +  
+    '<div class="centerbox" style="line-height: 1.8; width : 750px;">' +  
     '<p class="block-text" style="line-height : 2.9rem; font-weight : 800; color: black; font-size: 28px; font-family: Pretendard, sans-serif;">' + 
     '총 10개 문제 중 <strong style="color: red; font-size: 29px; text-decoration: underline; font-family: Pretendard, sans-serif;">' + randomNumber + '</strong>개 맞추셨습니다.<br>' + 
     '<span style="color: #3257af; font-family: Pretendard, sans-serif;">본 과제에 응시한 전체 고등학생 집단에서 상위 <strong style="color: blue; font-size: 29px; text-decoration: underline; font-family: Pretendard, sans-serif;">' + randomPercentage + '%</strong>에 속하며,' +
@@ -619,16 +619,16 @@ if (random_number < 1 / 2) {
 
 //Set up experiment
 var ravens_experiment = []
-ravens_experiment.push(instruction_node);
-ravens_experiment.push(practice_node_1);
-ravens_experiment.push(practice_feedback_block)
-ravens_experiment.push(practice_node_2);
-ravens_experiment.push(practice_feedback_block)
-ravens_experiment.push(start_test_block);
-survey_block.forEach(function(survey) {
-  ravens_experiment.push(survey);
-});
-ravens_experiment.push(end_block);
+// ravens_experiment.push(instruction_node);
+// ravens_experiment.push(practice_node_1);
+// ravens_experiment.push(practice_feedback_block)
+// ravens_experiment.push(practice_node_2);
+// ravens_experiment.push(practice_feedback_block)
+// ravens_experiment.push(start_test_block);
+// survey_block.forEach(function(survey) {
+//   ravens_experiment.push(survey);
+// });
+// ravens_experiment.push(end_block);
 ravens_experiment.push(selected_result_block);
 
 

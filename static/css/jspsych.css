@@ -76,6 +76,7 @@ input[type="text"] {
   color: #333;
   background-color: #fff;
   border-color: #ccc;
+  width : 200px
 }
 
 .jspsych-btn:hover {
