@@ -118,7 +118,7 @@ for (var j = 0; j < trial.options[0][0].length; j++) {
   var radio_button = '<input type="radio" name="' + input_id_name + '" value="' + trial.options[0][i][j] + '" class="custom-radio">';
 
   // add label and question text
-  var option_label = '<label class="' + plugin_id_name + '-text jspsych-poldrack-survey-multi-choice-text">' + trial.options[0][i][j] + '</label>';
+  var option_label = '<label class="' + plugin_id_name + '-text jspsych-poldrack-survey-multi-choice-text radio-label">' + trial.options[0][i][j] + '</label>';
 
   // 라디오 버튼을 먼저 추가하고 그 아래에 라벨을 추가
   $li.append(radio_button + option_label);
@@ -134,13 +134,26 @@ for (var j = 0; j < trial.options[0][0].length; j++) {
       //  또한 라디오 버튼을 필수 입력 필드로 설정합니다.
       if (trial.required && trial.required[i]) {
         // add "question required" asterisk
-        $(question_selector + " p").append("<span class='required'>*</span>")
+        $(question_selector + " p").css({
+          "margin-top": "3px",
+          "margin-bottom": "3px"
+        });
+        $(question_selector + " p").append(
+          "<span class='required' >*</span>")
 
         // add required property
         $(question_selector + " input:radio").prop("required", true);
       }
     }
 
+    // //  또한 라디오 버튼을 필수 입력 필드로 설정합니다.
+    // if (trial.required && trial.required[i]) {
+    //   // add "question required" asterisk with margin style
+    //   $(question_selector + " p").append("<span class='required' style='margin-top: 10px; margin-bottom: 10px;'>*</span>");
+    
+    //   // add required property
+    //   $(question_selector + " input:radio").prop("required", true);
+    // }
 
 
 

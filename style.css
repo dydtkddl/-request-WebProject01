@@ -52,54 +52,70 @@ img {
 
 .jspsych-poldrack-survey-multi-choice-opts {
     font-size: 20px;
-}
+}  
 .radio-list {
-    list-style-type: none;  /* 기본 리스트 스타일 제거 */
-    padding: 0;
-    display: flex;  /* Flexbox를 사용하여 수평 정렬 */
-    justify-content: center;  /* 가운데 정렬 */
-    align-items: center;  /* 세로 가운데 정렬 */
-  }
-  
-  .radio-list li {
-    margin-right: 20px;  /* 각 항목 사이의 간격을 추가 */
-    display: flex;
-    flex-direction: column;  /* 라디오 버튼이 위, 라벨이 아래로 배치 */
-    align-items: center;  /* 중앙 정렬 */
-  }
-  
-  .radio-container input[type="radio"] {
-    appearance: none;  /* 기본 브라우저 스타일 제거 */
-    width: 20px;  /* 라디오 버튼 크기 */
-    height: 20px;
-    border-radius: 50%;  /* 둥근 모양으로 */
-    background-color: #fff;  /* 배경 색 */
-    border: 2px solid #007BFF;  /* 테두리 색상 */
-    outline: none;  /* 선택 시 외곽선 제거 */
-    cursor: pointer;  /* 클릭 가능한 커서 */
-    position: relative;
-  }
-  
-  .radio-container input[type="radio"]:checked::before {
-    content: '';
-    display: block;
-    width: 10px;  /* 선택된 상태의 내부 원 크기 */
-    height: 10px;
-    border-radius: 50%;
-    background-color: #007BFF;  /* 선택된 상태의 색상 */
-    position: absolute;
-    top: 5px;
-    left: 5px;
-  }
-  
-  .radio-container label {
-    margin-top: 10px;  /* 라벨과 라디오 버튼 사이 간격 */
-    font-size: 16px;
-    cursor: pointer;  /* 클릭 가능한 커서 */
-    text-align: center;  /* 중앙 정렬 */
-  }
-  
-  .radio-container input[type="radio"]:hover {
-    border-color: #0056b3;  /* 마우스 오버 시 테두리 색상 변경 */
-  }
-  
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+}
+
+.radio-container {
+  text-align: center;
+  margin: 0 10px;
+}
+
+.radio-label {
+  display: block;
+  margin-top: -18px;
+  font-weight: bold;
+  font-size: 18px;
+  color: black;
+}
+
+.custom-radio {
+  appearance: none;
+  background-color: #f0f0f0;
+  border: 2px solid #ddd;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+  outline: none;
+  transition: background 0.3s ease;
+}
+
+.custom-radio:checked {
+  background-color: #007bff; /* 파란색 강조 */
+  border-color: #007bff;
+}
+
+.custom-radio:checked::before {
+  content: '';
+  display: block;
+  width: 10px;
+  height: 10px;
+  margin: 5px;
+  border-radius: 50%;
+  background: white;
+}
+.progress-text {
+  font-size: 18px; 
+  text-align: center; 
+  font-weight: 600; 
+  background-color: #f0f8ff; 
+  padding: 10px; 
+  border-radius: 10px;
+   color: #000; 
+   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+.progress-text2 {
+  font-size: 18px; 
+  text-align: center; 
+  font-weight: 600; 
+  background-color: #eee1f8; 
+  padding: 10px; 
+  border-radius: 10px;
+   color: #000; 
+   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}

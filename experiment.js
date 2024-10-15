@@ -37,14 +37,18 @@ var path = './images/'
 var prefix = '<div style="text-align:center"><img src = "'
 var bottom_id = '" id="bottom_img'
 var postfix = '"</img></div>'
+// 실제 문제 18개 → 10개로 변경
+// 이미지 파일 번호 기준으로 1~6, 9~12를 남겨 주시고,
+// 나머지는 삭제해 주세요
 var top_img = ['top_1.jpg', 'top_2.jpg', 'top_3.jpg', 'top_4.jpg', 'top_5.jpg', 'top_6.jpg',
-  'top_7.jpg', 'top_8.jpg', 'top_9.jpg', 'top_10.jpg', 'top_11.jpg', 'top_12.jpg', 'top_13.jpg',
-  'top_14.jpg', 'top_15.jpg', 'top_16.jpg', 'top_17.jpg', 'top_18.jpg'
+  // 'top_7.jpg', 'top_8.jpg',
+   'top_9.jpg', 'top_10.jpg', 'top_11.jpg', 'top_12.jpg',
+    // 'top_13.jpg',  'top_14.jpg', 'top_15.jpg', 'top_16.jpg', 'top_17.jpg', 'top_18.jpg'
 ]
-var bottom_img = ['bottom_1.jpg', 'bottom_2.jpg', 'bottom_3.jpg', 'bottom_4.jpg', 'bottom_5.jpg',
-  'bottom_6.jpg', 'bottom_7.jpg', 'bottom_8.jpg', 'bottom_9.jpg', 'bottom_10.jpg',
-  'bottom_11.jpg', 'bottom_12.jpg', 'bottom_13.jpg', 'bottom_14.jpg', 'bottom_15.jpg',
-  'bottom_16.jpg', 'bottom_17.jpg', 'bottom_18.jpg'
+var bottom_img = ['bottom_1.jpg', 'bottom_2.jpg', 'bottom_3.jpg', 'bottom_4.jpg', 'bottom_5.jpg',  'bottom_6.jpg', 
+  // 'bottom_7.jpg', 'bottom_8.jpg',
+   'bottom_9.jpg', 'bottom_10.jpg',  'bottom_11.jpg', 'bottom_12.jpg', 
+  //  'bottom_13.jpg', 'bottom_14.jpg', 'bottom_15.jpg',  'bottom_16.jpg', 'bottom_17.jpg', 'bottom_18.jpg'
 ]
 var practice_tries = 0
 var practice_thresh = 5
@@ -59,7 +63,7 @@ for (var i = 0; i < top_img.length; i++) {
 
 var opts = ["A", "B", "C", "D", "E", "F", "G", "H"]
 
-var all_options = fillArray([opts], 18)
+var all_options = fillArray([opts], bottom_img.length)
 
 var scale_q1 = {
   "A": 0,
@@ -121,26 +125,26 @@ var scale_q6 = {
   "G": 0,
   "H": 0
 }
-var scale_q7 = {
-  "A": 0,
-  "B": 0,
-  "C": 0,
-  "D": 0,
-  "E": 1,
-  "F": 0,
-  "G": 0,
-  "H": 0
-}
-var scale_q8 = {
-  "A": 0,
-  "B": 1,
-  "C": 0,
-  "D": 0,
-  "E": 0,
-  "F": 0,
-  "G": 0,
-  "H": 0
-}
+// var scale_q7 = {
+//   "A": 0,
+//   "B": 0,
+//   "C": 0,
+//   "D": 0,
+//   "E": 1,
+//   "F": 0,
+//   "G": 0,
+//   "H": 0
+// }
+// var scale_q8 = {
+//   "A": 0,
+//   "B": 1,
+//   "C": 0,
+//   "D": 0,
+//   "E": 0,
+//   "F": 0,
+//   "G": 0,
+//   "H": 0
+// }
 var scale_q9 = {
   "A": 0,
   "B": 1,
@@ -181,66 +185,66 @@ var scale_q12 = {
   "G": 0,
   "H": 0
 }
-var scale_q13 = {
-  "A": 1,
-  "B": 0,
-  "C": 0,
-  "D": 0,
-  "E": 0,
-  "F": 0,
-  "G": 0,
-  "H": 0
-}
-var scale_q14 = {
-  "A": 0,
-  "B": 0,
-  "C": 1,
-  "D": 0,
-  "E": 0,
-  "F": 0,
-  "G": 0,
-  "H": 0
-}
-var scale_q15 = {
-  "A": 0,
-  "B": 1,
-  "C": 0,
-  "D": 0,
-  "E": 0,
-  "F": 0,
-  "G": 0,
-  "H": 0
-}
-var scale_q16 = {
-  "A": 0,
-  "B": 0,
-  "C": 0,
-  "D": 0,
-  "E": 1,
-  "F": 0,
-  "G": 0,
-  "H": 0
-}
-var scale_q17 = {
-  "A": 0,
-  "B": 0,
-  "C": 0,
-  "D": 0,
-  "E": 0,
-  "F": 1,
-  "G": 0,
-  "H": 0
-}
-var scale_q18 = {
-  "A": 0,
-  "B": 0,
-  "C": 0,
-  "D": 1,
-  "E": 0,
-  "F": 0,
-  "G": 0,
-  "H": 0
-}
+// var scale_q13 = {
+//   "A": 1,
+//   "B": 0,
+//   "C": 0,
+//   "D": 0,
+//   "E": 0,
+//   "F": 0,
+//   "G": 0,
+//   "H": 0
+// }
+// var scale_q14 = {
+//   "A": 0,
+//   "B": 0,
+//   "C": 1,
+//   "D": 0,
+//   "E": 0,
+//   "F": 0,
+//   "G": 0,
+//   "H": 0
+// }
+// var scale_q15 = {
+//   "A": 0,
+//   "B": 1,
+//   "C": 0,
+//   "D": 0,
+//   "E": 0,
+//   "F": 0,
+//   "G": 0,
+//   "H": 0
+// }
+// var scale_q16 = {
+//   "A": 0,
+//   "B": 0,
+//   "C": 0,
+//   "D": 0,
+//   "E": 1,
+//   "F": 0,
+//   "G": 0,
+//   "H": 0
+// }
+// var scale_q17 = {
+//   "A": 0,
+//   "B": 0,
+//   "C": 0,
+//   "D": 0,
+//   "E": 0,
+//   "F": 1,
+//   "G": 0,
+//   "H": 0
+// }
+// var scale_q18 = {
+//   "A": 0,
+//   "B": 0,
+//   "C": 0,
+//   "D": 1,
+//   "E": 0,
+//   "F": 0,
+//   "G": 0,
+//   "H": 0
+// }
 
 var score_scale = [
   [scale_q1],
@@ -249,18 +253,18 @@ var score_scale = [
   [scale_q4],
   [scale_q5],
   [scale_q6],
-  [scale_q7],
-  [scale_q8],
+  // [scale_q7],
+  // [scale_q8],
   [scale_q9],
   [scale_q10],
   [scale_q11],
   [scale_q12],
-  [scale_q13],
-  [scale_q14],
-  [scale_q15],
-  [scale_q16],
-  [scale_q17],
-  [scale_q18]
+  // [scale_q13],
+  // [scale_q14],
+  // [scale_q15],
+  // [scale_q16],
+  // [scale_q17],
+  // [scale_q18]
 ]
 /* ************************************ */
 /* Set up jsPsych blocks */
@@ -295,7 +299,7 @@ var instructions_block = {
     '</div>',
 
     // 두 번째 페이지: 예시 문제 설명
-    '<div class="centerbox">' + 
+    '<div class="centerbox" style = "margin-top : -5%">' + 
     '<p class="block-text" style="font-size: 24px; font-weight: 400; line-height: 2.3rem;"><strong>예시 문제의 패턴을 살펴봅시다.</strong> 행(가로)을 따라가면 선의 개수가 동일합니다. 열(세로)을 따라가면 사각형의 개수가 동일합니다.</p>' + 
     '<div class="sample_img"><img src = "./images/practice/1.jpg"></div>' + 
     '<p class="block-text" style="font-size: 24px; font-weight: 400; line-height: 2.3rem;"><strong>예시 문제의 선택지를 살펴봅시다.</strong> 빈칸에 들어갈 가장 적절한 답은 ‘E’입니다.</p>' + 
@@ -304,7 +308,7 @@ var instructions_block = {
     '</div>',
 
     // 세 번째 페이지: 연습 문제 안내
-    '<div class="centerbox">'+
+    '<div class="centerbox" >'+
   '<p class="center-block-text" style="font-size: 24px; font-weight: 400; line-height: 2.3rem;">'
     +'이제 다음 페이지에서는 <strong style="font-size: 26px; color: #007BFF;">연습 문제 2개</strong>를 풀어보겠습니다. <br><br>'
     +'연습 문제에는 <strong style="color: #28A745;">정답/오답 여부</strong>가 제시되며, <strong style="color: #28A745;">다시 풀 수</strong> 있습니다.<br><br>'
@@ -373,8 +377,7 @@ var practice_block_1 = {
       [true] // trial.required: 각 질문에 대해 필수 응답 여부를 설정하며, 기본값은 null입니다.
     ]
   ],
-  preamble: '', // // trial.preamble: 설문 시작 전에 표시될 안내문을 설정하며, 정의되지 않았을 경우 빈 문자열로 기본값을 설정합니다.
-
+  preamble: '<div class="progress-text2" style="font-size: 18px; text-align: center; font-weight: 600;">연습문제 1</div>',  // 연습문제 1 텍스트 추가
   
   exp_id: "ravens",
   pages: [
@@ -436,7 +439,8 @@ var practice_block_2 = {
   type: "poldrack-survey-multi-choice",
   exp_id: "ravens",
   horizontal: true,
-  preamble: '',
+  preamble: '<div class="progress-text2" style="font-size: 18px; text-align: center; font-weight: 600;">연습문제 2</div>',  // 연습문제 2 텍스트 추가
+ 
   pages: [
     [
       '<div><p class = block-text></p> <div class="sample_img"><img src = "./images/practice/practice_top_2.jpg"</img></div><div class="sample_img"><img src = "./images/practice/practice_bottom_2.jpg" id="bottom_img"</img></div></div>'
@@ -503,7 +507,7 @@ var practice_node_2 = {
 var start_test_block = {
   type: 'poldrack-text',
   cont_key: [13],
-  text: '<div class = centerbox><p class = center-block-text>이제 실제 문제를 풀 것입니다.<br><br>계속하려면 <strong>enter</strong> 키를 누르세요.</p></div>',
+  text: '<div class = "centerbox" > <p class="center-block-text">이제 <strong style="color: #3257af;">실제 문제</strong>를 풀 것입니다.<br><br>계속하려면 <strong>enter</strong> 키를 누르세요.</p></div>',
   timing_post_trial: 0,
   timing_response: 180000,
   data: {
@@ -518,7 +522,7 @@ for (let i = 0; i < all_pages.length; i++) {
     type: "poldrack-survey-multi-choice",
     exp_id: "ravens",
     horizontal: true,
-    preamble: '<div class="progress-text" style="font-size: 18px; text-align: center; font-weight: 600;">' +
+    preamble: '<div class="progress-text">' +
               '문제 ' + (i + 1) + ' / ' + total_questions + '</div>',  // 진행 상황 표시
     pages: [all_pages[i]],  // 각 페이지 내용
     options: [all_options[i]],  // 선택지
@@ -542,96 +546,59 @@ var end_block = {
 
 
 
+// 피드백 화면 1,2 중 랜덤으로 하나 제시
 
 
 
-// 빨간 글씨 (A0 또는 A-)와 파란 글씨(난수)를 조건에 따라 설정
-var redText = Math.random() < 0.5 ? 'A0' : 'A-';  // A0와 A- 중 하나를 랜덤하게 선택
 
-var blueText;
-if (redText === 'A0') {
-  // 빨간 글씨가 A0이면 6.0 ~ 12.0 중 난수 생성
-  blueText = (Math.random() * (12.0 - 6.0) + 6.0).toFixed(1);
-} else {
-  // 빨간 글씨가 A-이면 12.1 ~ 17.9 중 난수 생성
-  blueText = (Math.random() * (17.9 - 12.1) + 12.1).toFixed(1);
-}
+// ## 자리에 들어갈 7, 8, 9 중 하나를 랜덤으로 선택
+var randomNumber = Math.floor(Math.random() * 3) + 7; // 7, 8, 9 중 하나 선택
 
 var result_block_1 = {
-  type: 'poldrack-instructions', // poldrack-instructions 플러그인을 사용하여 결과 페이지 생성
+  type: 'poldrack-instructions', 
   pages: [
-    // 결과 페이지의 내용
-    '<div class="centerbox" style="line-height: 1.8; width : 600px">' +  // line-height를 사용하여 줄 간격을 늘림
-    '<p class="block-text" style = "line-height : 2.5rem; font-weight : 600">' + 
-    '이번 테스트에서 당신의 등급은 <strong style="color: red; font-size: 26px; text-decoration: underline;">' + redText + '</strong> (으)로, <br>' +  // 선택된 빨간 글씨 적용
-    '본 과제에 응시한 전체 고등학생 집단에서 상위 <strong style="color: blue; font-size: 26px; text-decoration: underline;">' + blueText + '%</strong>에 속하며,' +  // 선택된 파란 글씨 적용
-    '이는 매우 훌륭한 결과입니다.</p></div>',
+    '<div class="centerbox" style="line-height: 1.8; width : 680px">' +  
+    '<p class="block-text" style="line-height : 2.9rem; font-weight : 800; font-size : 28px; font-family: Pretendard, sans-serif;">' + 
+    '총 10개 문제 중 <strong style="color: red; font-size: 26px; text-decoration: underline; font-family: Pretendard, sans-serif;">' + randomNumber + '</strong>개 맞추셨습니다.<br>' +  
+    '<span style="color: #3257af; font-family: Pretendard, sans-serif;">본 과제에서 6개 이상 맞춘 경우 매우 훌륭한 결과이며, <br> 이는 대학에서 공부하는 데 충분한 인지 능력을 가졌음을 의미합니다.</span></p></div>',
   ],
-  allow_keys: false,  // 키 입력 허용 여부 설정
-  show_clickable_nav: true,  // 클릭 가능한 네비게이션 버튼 표시
-  button_label_finish: '종료',  // 버튼 레이블을 '종료'로 설정
-  timing_post_trial: 0,  // 트라이얼이 끝난 후 지연 시간 설정
+  allow_keys: false, 
+  show_clickable_nav: true,  
+  button_label_finish: '종료하기',  
+  timing_post_trial: 0,  
   data: {
-    exp_id: "ravens"  // 실험 ID
+    exp_id: "ravens"  
   },
-  end : 1
+  end: 1
 };
 
 
 
+// ## 자리에 들어갈 7, 8, 9 중 하나를 랜덤으로 선택
+var randomNumber = Math.floor(Math.random() * 3) + 7; // 7, 8, 9 중 하나 선택
 
+// 00 자리에 들어갈 6.0 ~ 11.9 사이의 난수 생성
+var randomPercentage = (Math.random() * (11.9 - 6.0) + 6.0).toFixed(1); // 6.0 ~ 11.9 중 난수
 
-
-
-// 빨간 글씨 (A0 또는 A-)를 조건에 따라 설정
-var redText = Math.random() < 0.5 ? 'A0' : 'A-';  // A0와 A- 중 하나를 랜덤하게 선택
 
 var result_block_2 = {
-  type: 'poldrack-instructions', // poldrack-instructions 플러그인을 사용하여 결과 페이지 생성
+  type: 'poldrack-instructions', 
   pages: [
-    // 결과 페이지의 내용
-    '<div class="centerbox" style="line-height: 1.8; width : 600px">' +  // line-height를 사용하여 줄 간격을 늘림
-    '<p class="block-text" style = "line-height : 2.5rem; font-weight : 600">' + 
-    '이번 테스트에서 당신의 등급은 <strong style="color: red; font-size: 26px; text-decoration: underline;">' + redText + '</strong> (으)로, <br>' +  // 빨간 글씨를 랜덤하게 적용
-    '새로운 유형의 문제에 도전하고 이를 해결하려고 노력했기 때문에 이는 매우 훌륭한 결과입니다.</p></div>',
+    '<div class="centerbox" style="line-height: 1.8; width : 680px;">' +  
+    '<p class="block-text" style="line-height : 2.9rem; font-weight : 800; color: black; font-size: 28px; font-family: Pretendard, sans-serif;">' + 
+    '총 10개 문제 중 <strong style="color: red; font-size: 29px; text-decoration: underline; font-family: Pretendard, sans-serif;">' + randomNumber + '</strong>개 맞추셨습니다.<br>' + 
+    '<span style="color: #3257af; font-family: Pretendard, sans-serif;">본 과제에 응시한 전체 고등학생 집단에서 상위 <strong style="color: blue; font-size: 29px; text-decoration: underline; font-family: Pretendard, sans-serif;">' + randomPercentage + '%</strong>에 속하며,' +
+    '이는 매우 훌륭한 결과입니다.</span></p></div>',
   ],
-  allow_keys: false,  // 키 입력 허용 여부 설정
-  show_clickable_nav: true,  // 클릭 가능한 네비게이션 버튼 표시
-  button_label_finish: '종료',  // 버튼 레이블을 '종료'로 설정
-  timing_post_trial: 0,  // 트라이얼이 끝난 후 지연 시간 설정
+  allow_keys: false, 
+  show_clickable_nav: true,  
+  button_label_finish: '종료하기',  
+  timing_post_trial: 0,  
   data: {
-    exp_id: "ravens"  // 실험 ID
+    exp_id: "ravens"  
   },
-  end : 1
+  end: 1
 };
-
-
-
-
-
-
-
-var result_block_3 = {
-  type: 'poldrack-instructions', // poldrack-instructions 플러그인을 사용하여 결과 페이지 생성
-  pages: [
-    // 결과 페이지의 내용
-    '<div class="centerbox">' +
-    '<p class="block-text" style = "text-align : center; font-size : 29px; font-weight : 600">' + 
-    '수고하셨습니다.</p></div>',
-
-  ],
-  allow_keys: false,  // 키 입력 허용 여부 설정
-  show_clickable_nav: true,  // 클릭 가능한 네비게이션 버튼 표시
-  button_label_finish: '종료',  // 버튼 레이블을 '종료'로 설정
-  timing_post_trial: 0,  // 트라이얼이 끝난 후 지연 시간 설정
-  data: {
-    exp_id: "ravens"  // 실험 ID
-  },
-  end : 1
-};
-
-
-
 
 
 
@@ -641,13 +608,11 @@ var selected_result_block;
 
 var random_number = Math.random(); // 0 ~ 1 사이의 난수 생성
 
-if (random_number < 1 / 3) {
-  selected_result_block = result_block_1;  // 1/3 확률로 result_block_1 선택
-} else if (random_number < 2 / 3) {
-  selected_result_block = result_block_2;  // 1/3 확률로 result_block_2 선택
+if (random_number < 1 / 2) {
+  selected_result_block = result_block_1;  // 1/2 확률로 result_block_1 선택
 } else {
-  selected_result_block = result_block_3;  // 1/3 확률로 result_block_3 선택
-}
+  selected_result_block = result_block_2;  // 1/2 확률로 result_block_2 선택
+} 
 
 // 선택된 결과 블록을 jsPsych 실험 타임라인에 추가
 
