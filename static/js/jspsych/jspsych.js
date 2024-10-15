@@ -120,10 +120,8 @@ var jsPsych = (function() {
     // write the data from the trial
     data = typeof data == 'undefined' ? {} : data;
     jsPsych.data.write(data);
-
     // get back the data with all of the defaults in
     var trial_data = jsPsych.data.getDataByTrialIndex(global_trial_index);
-
     // handle callback at plugin level
     if (typeof current_trial.on_finish === 'function') {
       current_trial.on_finish(trial_data);

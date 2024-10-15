@@ -313,7 +313,7 @@ var instructions_block = {
   ],
   allow_keys: false,
   show_clickable_nav: true,
-  timing_post_trial: 500,  // 이거때문에 1초 뒤에 보임
+  timing_post_trial: 100,  // 이거때문에 1초 뒤에 보임
   data: {
     exp_id: "ravens"
   },
@@ -401,6 +401,7 @@ var practice_block_1 = {
   ],
   show_clickable_nav: true,
   allow_backward: true,
+  timing_post_trial : 100
 };
 
 
@@ -466,6 +467,8 @@ var practice_block_2 = {
       [true]
     ]
   ],
+  timing_post_trial: 100,  // 이거때문에 1초 뒤에 보임
+
 };
 
 
@@ -507,22 +510,23 @@ var start_test_block = {
     exp_id: "ravens"
   }
 };
-
+var total_questions = all_pages.length;  // 총 문제 수
+var current_question = 0;  // 현재 진행 중인 문제 번호
 var survey_block = [];
 for (let i = 0; i < all_pages.length; i++) {
-// for (let i = 0; i < 2; i++) {
-  // i는 0부터 all_pages.length - 1까지 반복됩니다.
   survey_block.push({
     type: "poldrack-survey-multi-choice",
     exp_id: "ravens",
     horizontal: true,
-    preamble: '',
-    pages: [all_pages[i]],  // 한 페이지에 한 질문씩
-    options: [all_options[i]],
+    preamble: '<div class="progress-text" style="font-size: 18px; text-align: center; font-weight: 600;">' +
+              '문제 ' + (i + 1) + ' / ' + total_questions + '</div>',  // 진행 상황 표시
+    pages: [all_pages[i]],  // 각 페이지 내용
+    options: [all_options[i]],  // 선택지
     scale: score_scale,
     show_clickable_nav: true,
     allow_backward: true,
     required: fillArray([true], 18),  // 필요시 수정
+    timing_post_trial: 100,  // 1초 대기 후 다음 트라이얼로 넘어감
   });
 }
 
@@ -562,7 +566,6 @@ var result_block_1 = {
     '이번 테스트에서 당신의 등급은 <strong style="color: red; font-size: 26px; text-decoration: underline;">' + redText + '</strong> (으)로, <br>' +  // 선택된 빨간 글씨 적용
     '본 과제에 응시한 전체 고등학생 집단에서 상위 <strong style="color: blue; font-size: 26px; text-decoration: underline;">' + blueText + '%</strong>에 속하며,' +  // 선택된 파란 글씨 적용
     '이는 매우 훌륭한 결과입니다.</p></div>',
-
   ],
   allow_keys: false,  // 키 입력 허용 여부 설정
   show_clickable_nav: true,  // 클릭 가능한 네비게이션 버튼 표시
